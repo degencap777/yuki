@@ -86,6 +86,8 @@ typedef  unsigned long long int uint64;
 /* Board config */
 const int BOARD_SIZE = 8;  // change to 8 or any other size if you want
 const int BOARD_SQUARE_SIZE = BOARD_SIZE * BOARD_SIZE;
-const int BOARD_ACTION_N = BOARD_SQUARE_SIZE;
+const int BOARD_ACTION_N = BOARD_SQUARE_SIZE + 1;
+const int SIDE_PLANE = 1;
+const int PLANES_N = SIDE_PLANE * 2;
 
 #endif
