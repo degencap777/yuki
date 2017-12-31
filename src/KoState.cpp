@@ -33,10 +33,8 @@ void KoState::init_game(int size) {
 
     FastState::init_game(size);
 
-    m_ko_hash_history.clear();
     m_hash_history.clear();
 
-    m_ko_hash_history.emplace_back(board.calc_ko_hash());
     m_hash_history.emplace_back(board.calc_hash());
 }
 
@@ -44,17 +42,14 @@ void KoState::init_game(int size) {
 void KoState::reset_game() {
     FastState::reset_game();
 
-    m_ko_hash_history.clear();
     m_hash_history.clear();
 
-    m_ko_hash_history.push_back(board.calc_ko_hash());
     m_hash_history.push_back(board.calc_hash());
 }
 
 void KoState::play_pass(void) {
     FastState::play_pass();
 
-    m_ko_hash_history.push_back(board.get_ko_hash());
     m_hash_history.push_back(board.get_hash());
 }
 
@@ -66,7 +61,6 @@ void KoState::play_move(int color, int vertex) {
     if (vertex != FastBoard::PASS && vertex != FastBoard::RESIGN) {
         FastState::play_move(color, vertex);
 
-        m_ko_hash_history.push_back(board.get_ko_hash());
         m_hash_history.push_back(board.get_hash());
     } else {
         play_pass();
