@@ -28,15 +28,12 @@ public:
     int update_board(const int color, const int i, bool & capture);
 
     uint64 calc_hash(void);
-    uint64 calc_ko_hash(void);
     uint64 get_hash(void) const;
-    uint64 get_ko_hash(void) const;
 
     void reset_board(int size);
     void display_board(int lastmove = -1);
 
     uint64 m_hash;
-    uint64 m_ko_hash;
 };
 
 #endif
